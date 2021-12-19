@@ -6,9 +6,9 @@ export class View {
 
         this.searchWrapper = this.createElement('div', 'search-line');
         this.searchField = this.createElement('input', 'search-input');
-        this.projectsCounter = this.createElement('span', 'counter');
+        this.searchError = this.createElement('span', 'counter');
         this.searchWrapper.append(this.searchField);
-        this.searchWrapper.append(this.projectsCounter);
+        this.searchWrapper.append(this.searchError);
 
         
         this.projectsWrapper = this.createElement('div', 'projects-wrapper');
@@ -45,5 +45,9 @@ export class View {
 
     showLoadBtn(show) {
         this.loadBtn.style.display = show ? 'block' : 'none';
+    }
+
+    showError(error) {
+        this.searchError.textContent = ' Error: ' + error;
     }
 }
