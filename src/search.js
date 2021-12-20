@@ -20,9 +20,10 @@ export class Search {
 
     loadProjects() {
         this.setPageCount(1);
+        this.view.setCounter('');
         if (!this.view.searchField.value) {
             this.clearProjects();
-            this.view.showLoadBtn(false);
+            this.view.showLoadBtn();
         }
         else {
             this.clearProjects();
@@ -43,9 +44,10 @@ export class Search {
                     response.json().then(response => {
                         allProjects = response.total_count;
                         this.setProjectsCount(this.projectsCount + response.items.length);
-                        this.view.showLoadBtn(allProjects > 21);
+                        this.view.setCounter(allProjects)
+                        this.view.showLoadBtn(allProjects > 21 && this.projectsCount !== allProjects);
                         response.items.forEach(project => {
-                            this.view.createProject(project);
+                            this.view.createProject(project, response);
                         });
                     })
                 }
@@ -53,12 +55,12 @@ export class Search {
         } catch (e) {
             this.view.showError(e);
         }
-
     }
 
     clearProjects() {
         this.view.projectsList.innerHTML = '';
-        this.view.searchError.innerHTML = '';
+        this.view.searchMessage.innerHTML = '';
+        this.view.projectWrapper.innerHTML = '';
     }
 
     debounce(func, wait, immediate) {

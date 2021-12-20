@@ -1,5 +1,3 @@
-*, *::before, *::after { box-sizing: border-box; }
-
 .app { padding: 25px; }
 
 .title { text-align: center; }
@@ -10,7 +8,8 @@
 .search-line {
 	flex-direction: column;
 	display: flex;
-	width: 50%;
+    justify-content: space-between;
+	width: 30%;
 	margin: 0 auto;
 }
 .search-input {
@@ -35,9 +34,12 @@
 	flex-wrap: wrap;
 }
 
+.project {
+    width: 100%;
+}
+
 .project-info {
-	padding-left: 100px;
-	width: 50%;
+	width: 20%;
 }
 
 .project-prev {
@@ -52,29 +54,7 @@
 	width: 270px;
 }
 
-.project-prev-photo {
-	max-width: 100%;
-	margin-bottom: 10px;
-}
-
-.project-prev-name { font-weight: 600; }
-
-.project-list {
-	display: flex;
-	flex-wrap: wrap;
-	margin: 0;
-	padding: 0;
-    
-}
-.project-list-item {
-	margin: 5px;
-	list-style-type: none;
-	padding: 0;
-
-}
-
-.btn {
-	background-color: #ccc;
+.searchBtn {
 	border: 0;
 	border-radius: 5px;
 	cursor: pointer;
