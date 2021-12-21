@@ -3,5 +3,6 @@ import { Search } from "./src/search.js";
 import { Request } from "./src/request.js";
 
 const request = new Request();
+const view = new View(request)
 
-new Search(new View(request), new Request());
+new Search(view, request);
