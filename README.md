@@ -1,2 +1,2 @@
 # Search repositories
-The app to search repositories with 2 or more comits and their short description
+simple application for searching repositories on github
